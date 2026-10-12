@@ -1,0 +1,11 @@
+{
+  "name": "gridshare-ai",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Rural microgrid energy coordination research simulator",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "test": "node source/test_engine.cjs && node source/test_ui.cjs"
+  },
+  "engines": { "node": ">=22" }
+}

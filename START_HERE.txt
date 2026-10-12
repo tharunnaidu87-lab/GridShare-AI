@@ -1,0 +1,52 @@
+GRIDSHARE AI — COMPLETE OFFLINE RESEARCH DEMO
+
+START ON WINDOWS
+1. Extract the entire ZIP (right-click > Extract All).
+2. Double-click OPEN_GRIDSHARE.html. Open with Chrome or Edge if prompted.
+3. Click Run 1 hour. No installation, API key, account or server is needed.
+4. If you see an old experiment, click Reset experiment.
+
+Mac/Linux: extract and open the same HTML file in a modern browser.
+You may copy OPEN_GRIDSHARE.html alone to another laptop; it is self-contained.
+If the chat previews HTML as text, download and open the extracted file locally.
+
+WHAT IS INCLUDED
+OPEN_GRIDSHARE.html  Complete runnable app, styles and engine in one file.
+source/              Editable HTML template, CSS, app JS and engine JS.
+source/test_engine.cjs  Repeatable engine tests (optional Node.js required).
+source/test_ui.cjs      DOM contract tests; no browser layout verification.
+rebuild.py            Rebuild runnable HTML after editing source (optional Python 3).
+DEMO_GUIDE.md         Demonstration script, project explanation, common questions.
+VALIDATION.md         Test evidence, limits and reproducibility notes.
+
+USE THE APP
+Village overview: run scenarios, click buildings, inspect decisions, test reserve protection.
+Household agents: inspect every node; edit starting resources BEFORE running.
+AI forecasting: real local regression training using labelled synthetic data.
+Trading ledger: observe pending/settled demo trades; export CSV.
+Impact comparison: computed results versus identical-input no-sharing baseline.
+Demo & methodology: presentation script and honest implementation status.
+
+OFFLINE DEMO
+The app itself never needs Internet. The Internet button simulates a connectivity
+outage between local execution and settlement. It does not detect your Wi-Fi.
+To show pending trades reliably: reset, select Solar surplus, toggle Internet
+offline, then run an hour. Open the ledger, then reconnect and sync.
+
+SAVE AND RESET
+State saves to this browser when local storage is permitted. Keep using the same
+browser and file location. File-URL storage behaviour can vary by browser; use
+CSV export for records you must keep. Reset clears this app's experiment only.
+Auto advances one simulated hour every 2.2 seconds. Pause before explaining.
+
+IMPORTANT SCOPE
+Electricity, meter readings, network links and settlement are simulated.
+No real grid, blockchain, cryptocurrency, wallet, LoRa or cloud server is connected.
+Credits are demo accounting units, not money. Initial battery charge is assumed
+to come from renewable sources. The software never controls electrical equipment.
+The solar model uses synthetic data; no real-world prediction accuracy is claimed.
+Allocation agents are rule-based; forecasting is a separate working ML component.
+
+HOSTING FILES
+public/index.html is the hosted version. scripts/build.cjs validates and builds it.
+README.md includes exact Render Static Site settings.
