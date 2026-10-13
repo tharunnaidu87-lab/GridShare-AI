@@ -3,9 +3,10 @@ const fs=require('node:fs'),path=require('node:path'),{execFileSync}=require('no
 const root=path.resolve(__dirname,'..');
 for(const test of ['test_engine.cjs','test_ui.cjs'])execFileSync(process.execPath,[path.join(root,'source',test)],{stdio:'inherit'});
 let html=fs.readFileSync(path.join(root,'source/layout.html'),'utf8');
-for(const [token,file] of [['STYLE','style.css'],['ENGINE','engine.js'],['APP','app.js']])html=html.replace('/*'+token+'*/',fs.readFileSync(path.join(root,'source',file),'utf8'));
+for(const [token,file] of [['STYLE','style.css'],['ENGINE','engine.js'],['APP','app.js']])html=html.replace('/*'+token+'*/',()=>fs.readFileSync(path.join(root,'source',file),'utf8'));
 if(/\/\*(STYLE|ENGINE|APP)\*\//.test(html))throw Error('Unresolved build token');
 fs.mkdirSync(path.join(root,'public'),{recursive:true});
 fs.writeFileSync(path.join(root,'public/index.html'),html);
 fs.writeFileSync(path.join(root,'OPEN_GRIDSHARE.html'),html);
-console.log('Built public/index.html and offline OPEN_GRIDSHARE.html');
+execFileSync(process.execPath,[path.join(root,'source/test_ui.cjs')],{stdio:'inherit',env:{...process.env,GRIDSHARE_TEST_BUNDLE:'1'}});
+console.log('Built and verified public/index.html and offline OPEN_GRIDSHARE.html');
